@@ -76,20 +76,28 @@ Re-running of SPMF conformance tests is currently in progress.
 * Install on Centos7.1 or later Linux system
 * Install and configure the Apache httpd 
 
-     yum install httpd`
-     cd  your_path_to_Directory_Holding_RedDrumSimulator_code
+```
+     yum install httpd
+     cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
      mkdir RedDrumSim
      git clone https://github.com RedDrum-Redfish-Project/RedDrum-Httpd-Configs RedDrum-Httpd-Configs
      cd RedDrum-Httpd-Configs/Apache-ReverseProxy
      ./subSystem_config.sh # creates a httpd.conf file in etc/httpd and creates self-signed ssl certificates
+```
 
 * Install the RedDrum-Frontend code
-     cd  your_path_to_Directory_Holding_RedDrumSimulator_code
+
+```
+     cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
      git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Frontend  RedDrum-Frontend
+```
 
 * Install the RedDrum-Simulator code
-     cd  your_path_to_Directory_Holding_RedDrumSimulator_code
+
+```
+     cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
      git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Simulator  RedDrum-Simulator  
+```
 
 #### Install using `pip install` from github (currently testing)
 * ***currently verifying that installing directly from github using pip install***
@@ -98,18 +106,19 @@ Re-running of SPMF conformance tests is currently in progress.
 
 
 ### How to Start  the RedDrum-Simulator
-     cd  your_path_to_Directory_Holding_RedDrumSimulator_code
-     cd  RedDrum-Simulator/scripts
+
+```
+     cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>/RedDrum-Simulator/scripts
      ./runSimulator BaseServer1  # to run the Ocp Base Server Profile for a simple monalythic server
      ./runSimulator Dss8000-4nodes  # to run the simulation of  a Dell ESS9000 rack-level redfish service w/ 4 nodes present
+```
 
 ### How to Clear Data Caches
 The Simulator Frontend keeps resource data for non-volatile resource models cached in files, so if you add/delete users, change passwords, set AssetTags, etc, the changes will persist stopping and re-starting the simulator
 * To clear all data caches to defaults and also clear python caches, run:
   * NOTE that IF YOU CHANGE Simulation Data, you must clear the caches for the changes to appear.
 
-     cd  your_path_to_Directory_Holding_RedDrumSimulator_code
-     cd  RedDrum-Simulator/scripts
+     cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>/RedDrum-Simulator/scripts
      ./clearCaches
 
 ---
