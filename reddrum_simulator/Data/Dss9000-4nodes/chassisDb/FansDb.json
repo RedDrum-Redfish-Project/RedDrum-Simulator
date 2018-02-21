@@ -1,0 +1,160 @@
+{
+"Rack1-Block1": {
+    "Id": {
+        "0": {
+            "Name": "Fan1",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24900,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "1": {
+            "Name": "Fan2",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24901,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "2": {
+            "Name": "Fan3",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24902,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "3": {
+            "Name": "Fan4",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 25993,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "4": {
+            "Name": "Fan5",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24904,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "5": {
+            "Name": "Fan6",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24905,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "6": {
+            "Name": "Fan7",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24906,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "7": {
+            "Name": "Fan8",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Absent" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24907,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "8": {
+            "Name": "Fan9",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24908,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "9": {
+            "Name": "Fan10",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Absent" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24909,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            },
+        "10": {
+            "Name": "Fan11",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Absent" },
+            "Volatile": [ "Reading" ],
+            "Reading": null,
+            "LowerThresholdCritical": null,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": null,
+            "MaxReadingRange": null,
+            "RedundancyGroup": "0"
+            },
+        "11": {
+            "Name": "Fan12",
+            "PhysicalContext": "Backplane",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "Reading" ],
+            "Reading": 24911,
+            "LowerThresholdCritical": 16,
+            "ReadingUnits": "RPM",
+            "MinReadingRange": 0,
+            "MaxReadingRange": 25000,
+            "RedundancyGroup": "0"
+            }
+    },
+    "RedundancyGroup": {
+        "0": {
+            "Name": "Shared Block-level Fans",
+            "Mode": "N+m",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "MinNumNeeded": 11,
+            "MaxNumSupported": 12
+            }
+        }
+}
+}
+

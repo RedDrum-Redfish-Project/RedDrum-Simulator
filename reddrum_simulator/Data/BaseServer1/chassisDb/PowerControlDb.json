@@ -1,0 +1,17 @@
+{
+"Ocp1": {
+    "Id": {
+        "0": {
+            "Name": "Total_Chassis_Power_Consumed",
+            "PhysicalContext": "Chassis",
+            "Patchable": ["LimitInWatts","LimitException"],
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "PowerConsumedWatts": 540,
+            "LimitInWatts": 409,
+            "LimitException": "LogEventOnly",
+            "Volatile": [ "PowerConsumedWatts" ]
+
+            }
+    }
+}
+}

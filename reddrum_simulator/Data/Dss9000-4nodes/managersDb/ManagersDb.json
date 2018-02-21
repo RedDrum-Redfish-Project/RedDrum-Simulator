@@ -1,0 +1,91 @@
+{
+"Rack1-Block1-Bc": { 
+    "Name": "Bc", 
+    "Description": "DSS9000 Block Controller (BC)",
+    "ManagerType": "AuxiliaryController",
+    "FirmwareVersion": "03.30.032",
+    "Status": {"State": "Enabled", "Health": "OK"},
+    "ActionsResetAllowableValues": ["GracefulRestart","ForceRestart"],
+    "ManagerInChassis": "Rack1-Block1",
+    "ManagerForChassis": ["Rack1-Block1"],
+    "OemDellG5MCMgrInfo": { "LastUpdateStatus": "LLC_UPDATE_SUCCESSFUL", "SafeBoot": "NO", "OpenLookupTableVersion": "1.48"},
+    "DiscoveredBy": "Static"
+    },
+"Rack1-PowerBay1-Im": { 
+    "Name": "Im", 
+    "Description": "DSS9000 Infrastructure Manager (IM)",
+    "ManagerType": "AuxiliaryController",
+    "FirmwareVersion": "03.30.012",
+    "Status": {"State": "Enabled", "Health": "OK"},
+    "ActionsResetAllowableValues": ["GracefulRestart","ForceRestart"],
+    "ManagerInChassis": "Rack1-PowerBay1",
+    "ManagerForChassis": ["Rack1-PowerBay1"],
+    "OemDellG5MCMgrInfo": { "LastUpdateStatus": "LLC_UPDATE_SUCCESSFUL", "SafeBoot": "NO" },
+    "DiscoveredBy": "Static"
+    },
+"Rack1-PowerBay1-MC1": { 
+    "Name": "managedMC", 
+    "Description": "DSS9000 Management Controller in PowerBay",
+    "ManagerType": "AuxiliaryController",
+    "FirmwareVersion": "03.30.032",
+    "Status": {"State": "Enabled", "Health": "OK"},
+    "ActionsResetAllowableValues": ["GracefulRestart","ForceRestart"],
+    "ManagerInChassis": "Rack1-PowerBay1",
+    "ManagerForChassis": ["Rack1-PowerBay1"],
+    "OemDellG5MCMgrInfo": { "LastUpdateStatus": "LLC_UPDATE_SUCCESSFUL" },
+    "DiscoveredBy": "Static"
+    },
+"RackManager": { 
+    "Name": "RackManager", 
+    "Description": "DSS9000 Integrated RackManager",
+    "ManagerType": "RackManager",
+    "Model": "DSS9000-RackManager",
+    "FirmwareVersion": "1.1",
+    "Status": {"State": "Enabled", "Health": "OK"},
+    "ActionsResetAllowableValues": ["GracefulRestart","ForceRestart"],
+    "ManagerInChassis": "Rack1-PowerBay1",
+    "ManagerForChassis": ["Rack1"],
+    "GetDateTimeFromOS": true,
+    "GetUuidFromServiceRoot": true,
+    "GetServiceEntryPointUuidFrom": "ServiceRoot",
+    "SerialConsole": { "ServiceEnabled": true, "MaxConcurrentSessions": 100, "ConnectTypesSupported": ["SSH"] },
+    "CommandShell":  { "ServiceEnabled": true, "MaxConcurrentSessions": 100, "ConnectTypesSupported": ["SSH"] },
+    "BaseNavigationProperties": ["NetworkProtocol", "EthernetInterfaces" ],
+    "NetworkProtocols": {
+        "Name":  "RackManager Network Protocols",
+        "HTTP":  {"Port": 80, "ProtocolEnabled":  true}, 
+        "HTTPS": {"Port": 443,"ProtocolEnabled": true },
+        "SSH":   {"Port": 22, "ProtocolEnabled": true },
+        "NTP":   {"ProtocolEnabled": true, 
+                  "NTPServers": [
+                      "0.centos.pool.ntp.org",
+                      "1.centos.pool.ntp.org", 
+                      "2.centos.pool.ntp.org",
+                      "3.centos.pool.ntp.org" 
+                  ] 
+        },
+        "HostName": "RackManager",
+        "FQDN": "",
+        "Status": {"State": "Enabled", "Health": "OK"}
+     },
+    "EthernetInterfaces": {
+        "Mgmt1": { "InterfaceEnabled": true, "FQDN": "", "FullDuplex": true, "AutoNeg": true, "SpeedMbps": 1000, 
+                   "Name": "Mgmt1", "MACAddress": "AA:BB:CC:DD:EE:F1", "PermanentMACAddress": "AA:BB:CC:DD:EE:F1",
+                   "HostName": "", "MTUSize": 1500, 
+                   "IPv4Addresses": [
+                       { "Gateway": "192.168.1.1", "AddressOrigin": "DHCP", "SubnetMask": "255.255.128.0",
+                         "Address": "192.168.0.111" }
+                   ]
+                 },
+        "Mgmt2": { "InterfaceEnabled": true, "FQDN": "", "FullDuplex": true, "AutoNeg": true, "SpeedMbps": 1000, 
+                   "Name": "Mgmt1", "MACAddress": "AA:BB:CC:DD:EE:F2", "PermanentMACAddress": "AA:BB:CC:DD:EE:F2",
+                   "HostName": "", "MTUSize": 1500, 
+                   "IPv4Addresses": [
+                       { "Gateway": "192.168.1.1", "AddressOrigin": "DHCP", "SubnetMask": "255.255.128.0",
+                         "Address": "192.168.0.112" }
+                   ]
+                 }
+     },
+    "DiscoveredBy": "Static"
+}
+}

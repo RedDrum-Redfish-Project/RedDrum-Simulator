@@ -1,0 +1,20 @@
+{
+"Bmc": { 
+    "Name": "System-BMC", 
+    "Description": "System Baseboard Management Controller",
+    "ManagerType": "BMC",
+    "UUID": "12345678-abce-efgh-489239905423",
+    "ServiceEntryPointUUID": "01101010-abce-efgh-489239905799",
+    "Model": "OpenBMC",
+    "GetDateTimeFromOS": true,
+    "GetUuidFromServiceRoot": true,
+    "GetServiceEntryPointUuidFrom": "ServiceRoot",
+    "Patchable": ["DateTime","DateTimeLocalOffset"],
+    "FirmwareVersion": "OBMC-1.33.4",
+    "Status": {"State": "Enabled", "Health": "OK"},
+    "ActionsResetAllowableValues": ["GracefulRestart","ForceRestart"],
+    "ManagerInChassis": "Ocp1",
+    "ManagerForChassis": ["Ocp1"],
+    "DiscoveredBy": "Static"
+    }
+}

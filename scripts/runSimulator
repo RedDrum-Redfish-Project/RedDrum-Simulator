@@ -1,0 +1,11 @@
+#!/bin/bash
+profile=$1
+if [ "${profile}" == "" ]; then
+   echo  "No Profile specified: Syntax:   runRedDrum <profile>"
+   echo  "Profiles:    BaseServer1,   Dss9000-4nodes"
+   exit 1
+fi
+./clearCaches
+cd ..
+python3.4 ./redDrumSimulatorMain.py -L --Profile=${profile}
+

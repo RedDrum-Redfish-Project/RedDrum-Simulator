@@ -1,0 +1,116 @@
+{
+"Rack1-Block1": {
+    "Id": {
+        "0": {
+            "Name": "InletTemp",
+            "PhysicalContext": "Intake",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "ReadingCelsius" ],
+            "ReadingCelsius": 21,
+            "SensorNumber": 41,
+            "UpperThresholdNonCritical": 37,
+            "LowerThresholdNonCritical": 10,
+            "UpperThresholdCritical": 39,
+            "LowerThresholdCritical": 5,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 100
+        }
+    }
+},
+"Rack1-Block1-Sled1": {
+    "Id": {
+        "0": {
+            "Name": "InletTemp",
+            "PhysicalContext": "Intake",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "ReadingCelsius" ],
+            "ReadingCelsius": 20,
+            "SensorNumber": 41,
+            "UpperThresholdNonCritical": 37,
+            "LowerThresholdNonCritical": 10,
+            "UpperThresholdCritical": 39,
+            "LowerThresholdCritical": 5,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 100,
+            "AddRelatedItems": ["System","Chassis"]
+        },
+        "1": {
+            "Name": "CPU1Temp",
+            "PhysicalContext": "CPU",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "ReadingCelsius" ],
+            "ReadingCelsius": 51,
+            "SensorNumber": 42,
+            "UpperThresholdNonCritical": 100,
+            "LowerThresholdNonCritical": 10,
+            "UpperThresholdCritical": 105,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 200,
+            "AddRelatedItems": ["System","Chassis"]
+        },
+        "2": {
+            "Name": "CPU2Temp",
+            "PhysicalContext": "CPU",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "ReadingCelsius" ],
+            "ReadingCelsius": 52,
+            "SensorNumber": 43,
+            "UpperThresholdNonCritical": 80,
+            "LowerThresholdNonCritical": 10,
+            "UpperThresholdCritical": 85,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 200,
+            "AddRelatedItems": ["System","Chassis"]
+        }
+    }
+},
+"Rack1-Block1-Sled2": {
+    "Id": {
+        "0": {
+            "Name": "InletTemp",
+            "PhysicalContext": "Intake",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "ReadingCelsius" ],
+            "ReadingCelsius": 22,
+            "SensorNumber": 41,
+            "UpperThresholdNonCritical": 37,
+            "LowerThresholdNonCritical": 10,
+            "UpperThresholdCritical": 39,
+            "LowerThresholdCritical": 5,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 100,
+            "AddRelatedItems": ["System","Chassis"]
+        },
+        "1": {
+            "Name": "CPU1Temp",
+            "PhysicalContext": "CPU",
+	    "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "ReadingCelsius" ],
+            "ReadingCelsius": 53,
+            "SensorNumber": 42,
+            "UpperThresholdNonCritical": 100,
+            "LowerThresholdNonCritical": 10,
+            "UpperThresholdCritical": 105,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 200,
+            "AddRelatedItems": ["System","Chassis"]
+        },
+        "2": {
+            "Name": "CPU2Temp",
+            "PhysicalContext": "CPU",
+            "Status": {"State": "Enabled", "Health": "OK" },
+            "Volatile": [ "ReadingCelsius" ],
+            "ReadingCelsius": 54,
+            "SensorNumber": 43,
+            "UpperThresholdNonCritical": 80,
+            "LowerThresholdNonCritical": 10,
+            "UpperThresholdCritical": 85,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 200,
+            "AddRelatedItems": ["System","Chassis"]
+        }
+
+    }
+}
+}
+

@@ -1,0 +1,66 @@
+{
+"Rack1-Block1-Sled1-Node1": {
+    "Id": {
+        "NIC.Embedded.1-1-1": {
+            "Name": "NIC_1 ",
+            "MACAddress": "10:98:36:A9:07:56",
+            "PermanentMACAddress": "10:98:36:A9:07:56",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        },
+        "NIC.Embedded.1-1-2": {
+            "Name": "NIC_2",
+            "MACAddress": "10:98:36:A9:07:66",
+            "PermanentMACAddress": "10:98:36:A9:07:66",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        }
+    }
+},
+"Rack1-Block1-Sled2-Node1": {
+    "Id": {
+        "NIC.Embedded.1-1-1": {
+            "Name": "System Ethernet Interface",
+            "MACAddress": "10:98:36:A9:07:76",
+            "PermanentMACAddress": "10:98:36:A9:07:76",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        },
+        "NIC.Embedded.1-1-2": {
+            "Name": "System Ethernet Interface",
+            "MACAddress": "10:98:36:A9:07:86",
+            "PermanentMACAddress": "10:98:36:A9:07:86",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        }
+    }
+},
+"Rack1-Block1-Sled3-Node1": {
+    "Id": {
+        "NIC.Embedded.1-1-1": {
+            "Name": "System Ethernet Interface",
+            "MACAddress": "10:98:36:A9:07:96",
+            "PermanentMACAddress": "10:98:36:A9:07:96",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        },
+        "NIC.Embedded.1-1-2": {
+            "Name": "System Ethernet Interface",
+            "MACAddress": "10:98:36:A9:07:A6",
+            "PermanentMACAddress": "10:98:36:A9:07:A6",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        }
+    }
+},
+"Rack1-Block1-Sled4-Node1": {
+    "Id": {
+        "NIC.Embedded.1-1-1": {
+            "Name": "System Ethernet Interface",
+            "MACAddress": "10:98:36:A9:07:B6",
+            "PermanentMACAddress": "10:98:36:A9:07:B6",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        },
+        "NIC.Embedded.1-1-2": {
+            "Name": "System Ethernet Interface",
+            "MACAddress": "10:98:36:A9:07:C6",
+            "PermanentMACAddress": "10:98:36:A9:07:C6",
+            "Status": {"State": "Enabled", "Health": "OK" }
+        }
+    }
+}
+}

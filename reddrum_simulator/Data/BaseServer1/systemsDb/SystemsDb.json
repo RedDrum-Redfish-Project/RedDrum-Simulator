@@ -1,0 +1,33 @@
+{
+"sys1": { 
+    "Name": "Ocp Computer System", 
+    "Description": "Monolythic Rackmount OCP Computer System",
+    "SystemType": "Physical",
+    "Manufacturer": "Contoso",
+    "Model": "Rackmount-R2018x",
+    "SerialNumber": "R2018-123456",
+    "PartNumber": "PN02018RM",
+    "AssetTag": "CATFISH1",
+    "HostName": "Catfish",
+    "BiosVersion": "B52",
+    "Volatile": ["IndicatorLED","PowerState" ],
+    "IndicatorLED": "Off",
+    "PowerState": "On",
+    "Status": {"State": "Enabled", "Health": "OK"},
+    "ActionsResetAllowableValues": ["On","ForceOff","GracefulShutdown","GracefulRestart","ForceRestart"],
+    "Patchable": ["AssetTag","IndicatorLED" ],
+    "Chassis": ["Ocp1"],
+    "ManagedBy": ["Bmc"],
+    "BootSourceAllowableValues": ["None","Pxe","Hdd","BiosSetup","Cd","Floppy"],
+    "BootSourceVolatileProperties": ["BootSourceOverrideEnabled","BootSourceOverrideTarget","BootSourceOverrideMode","UefiTargetBootSourceOverride"],
+    "BootSourceOverrideEnabled": "Disabled",
+    "BootSourceOverrideTarget": "None",
+    "BootSourceOverrideMode": "Legacy",
+    "UefiTargetBootSourceOverride": "",
+    "BootSourcePatchableProperties": ["BootSourceOverrideEnabled","BootSourceOverrideTarget"],
+    "ProcessorSummary": {"Count": 1,"Model": "Power8","Status": {"State": "Enabled","Health": "OK"} },
+    "MemorySummary": {"TotalSystemMemoryGiB": 32, "Status": {"State": "Enabled","Health": "OK"}},
+    "GetUuidFromServiceRoot": true,
+    "DiscoveredBy": "Static"
+    }
+}
