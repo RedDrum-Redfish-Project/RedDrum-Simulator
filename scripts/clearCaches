@@ -3,7 +3,7 @@ CWD=`pwd`
 ECWD=$CWD/..
 rm -r -f $ECWD/__pycache__
 
-rm -r -f $ECWD/backend/__pycache__
+rm -r -f $ECWD/reddrum_simulator/__pycache__
 rm -r -f $ECWD/../RedDrum-Frontend/reddrum_frontend/__pycache__
 
 # remove Local RedfishService Database caches under RedfishService: FlaskApp

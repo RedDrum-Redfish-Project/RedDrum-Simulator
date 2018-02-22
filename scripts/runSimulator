@@ -7,5 +7,5 @@ if [ "${profile}" == "" ]; then
 fi
 ./clearCaches
 cd ..
-python3.4 ./redDrumSimulatorMain.py -L --Profile=${profile}
+python3 ./redDrumSimulatorMain.py -L --Profile=${profile}
 
