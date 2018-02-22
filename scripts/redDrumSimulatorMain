@@ -109,11 +109,21 @@ def redDrumMain(rdHost="127.0.0.1", rdPort=5001, isLocal=False, debug=False, rdS
     #      rdr.logMsg(sev,"message")  # where sev= "INFO" "WARNING" "ERROR" "CRITICAL" "DEBUG"
     #
     # **************************************
-    # *** EDIT THIS TO PUT THE " RedDrum-Frontend " package in the Python Path:
-    # ******** for now, we will add a path to ../RedDrum-Frontend  
+    # *** YOU MUST HAVE THE "reddrum_frontend" package from  RedDrum-Frontend in your Python Path:
     cwd=os.getcwd()
-    defaultFrontendPath=os.path.abspath(os.path.join(cwd,"..","RedDrum-Frontend"))
-    sys.path.append(defaultFrontendPath)
+    # reddrum_frontend should be in the python path
+    # see RedDrum-Frontend README.md for how to install it so that it shows up in the python path under site packages
+    #   for development, clone the Frontend and import with with -e option to allow editing 
+    #     clone https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend
+    #     pip install -e ./RedDrum-Frontend
+    #   If no need to edit the Frontend code--just install the frontend into sitepackages
+    #     pip install git+https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend.git
+    #
+    # to hard code the python-path to a dev RedDrum-Frontend
+    #     defaultFrontendPath=os.path.abspath(os.path.join(cwd,"---joint path over to the repo---","RedDrum-Frontend"))
+    #     sys.path.append(defaultFrontendPath) # add this to the path
+    #     from reddrum_frontend import RdRootData
+    #
     # *** end create path to the Frontend
     # **************************************
 

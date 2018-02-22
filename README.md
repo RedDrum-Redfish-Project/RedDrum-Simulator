@@ -72,7 +72,8 @@ Re-running of SPMF conformance tests is currently in progress.
 
 ---
 ## How to Install the RedDrum-Simulator 
-#### Manual Install from git clone
+
+#### Manual Install from git clone with edit-able code
 * Install on Centos7.1 or later Linux system
 * Install and configure the Apache httpd 
 
@@ -85,24 +86,26 @@ Re-running of SPMF conformance tests is currently in progress.
      ./subSystem_config.sh # creates a httpd.conf file in etc/httpd and creates self-signed ssl certificates
 ```
 
-* Install the RedDrum-Frontend code
+* Install the RedDrum-Frontend code (with editable code)
 
 ```
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
-     git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Frontend  RedDrum-Frontend
+     git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Frontend  
+     pip install -e ./RedDrum-Frontend
 ```
 
 * Install the RedDrum-Simulator code
 
 ```
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
-     git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Simulator  RedDrum-Simulator  
+     git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Simulator  
 ```
 
 #### Install using `pip install` from github (currently testing)
-* ***currently verifying that installing directly from github using pip install***
+* ***currently working on this***
 
 #### Install using `pip install` from pypi (not working yet)
+* ***currently working on this***
 
 
 ### How to Start  the RedDrum-Simulator
