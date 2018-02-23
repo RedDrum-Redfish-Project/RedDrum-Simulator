@@ -26,5 +26,9 @@ setup(name='RedDrum-Simulator',
           'pytz'                     # used by Frontend
       ],
       include_package_data = True,
-      package_data={'':['*.json', '*.xml', '*.conf']}
+      package_data={'reddrum_simulator': [
+        'RedDrum.conf',
+        'Data/BaseServer1/chassisDb/*.json', 'Data/BaseServer1/managersDb/*.json', 'Data/BaseServer1/systemsDb/*.json',
+        'Data/Dss9000-4nodes/chassisDb/*.json', 'Data/Dss9000-4nodes/managersDb/*.json', 'Data/Dss9000-4nodes/systemsDb/*.json'
+        ]}
 )

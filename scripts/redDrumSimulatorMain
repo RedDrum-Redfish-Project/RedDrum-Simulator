@@ -133,7 +133,8 @@ def redDrumMain(rdHost="127.0.0.1", rdPort=5001, isLocal=False, debug=False, rdS
 
     # now calculate the directory path to the FrontEnd Package Directory which has reddrum_frontend/ and reddrum_frontend/Data under it
     # this works even if the Frontend package above was put in site-packages
-    rdr.frontEndDirPath=os.path.abspath(os.path.join(os.path.dirname( inspect.getfile(RdRootData)), ".."))
+    rdr.frontEndPkgPath=os.path.dirname( inspect.getfile(RdRootData))  # return the path to reddrum_frontend
+    rdr.frontEndDirPath=os.path.abspath(os.path.join(rdr.frontEndPkgPath, ".."))
     #print("EEEEEEEEEEEEEEEE DIR: frontend dir: {}".format(rdr.frontEndDirPath))
 
     # initialize root data with passed-in args
@@ -153,8 +154,14 @@ def redDrumMain(rdHost="127.0.0.1", rdPort=5001, isLocal=False, debug=False, rdS
     # if you want to create your own, copy the front-end of the RdLogger code and then import your own
     # if you don't set rdr.logger=RdLogger() or your custom logger, then messages are not logged
     loggerName="None"
-    if rdr.isLocal is not True:     
-        from RedfishService import RdLogger         # import the default RedDrum logger
+
+    # set a property to indicate whether to startup a syslog logger for RedDrum
+    # if startSimulatorLogger is True, it will try to create a logger,
+    startSimulatorLogger=False     # **** if False, we wont try to start a logger with the Simulator 
+
+
+    if rdr.isLocal is not True and startSimulatorLogger is True:     
+        from reddrum_frontend import RdLogger         # import the default RedDrum logger
         rdr.rdLogger = RdLogger(rdr.rdServiceName)   # dflt rdLogger=None
         loggerName="RdLogger"
 

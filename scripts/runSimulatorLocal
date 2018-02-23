@@ -6,5 +6,6 @@ if [ "${profile}" == "" ]; then
    exit 1
 fi
 ./clearCaches
-python3 redDrumSimulatorMain  --Profile=${profile}
+cd ..
+python3 ./redDrumSimulatorMain.py -L --Profile=${profile}
 

@@ -6,6 +6,7 @@
 import os
 import sys
 import json
+import inspect
 
 # Backend root class for Simulator
 from .chassisBackend   import RdChassisBackend
@@ -46,11 +47,34 @@ class RdBackendRoot():
         # set the data paths for standard Linux
         #   if running w/ -L (isLocal) option, the varDataPath is modified from this by Main
         rdSvcPath=os.getcwd()
-        rdr.baseDataPath=os.path.join(rdSvcPath, "reddrum_frontend", "Data")
-        rdr.varDataPath="/var/www/rf"  
-        rdr.RedDrumConfPath=os.path.join(rdSvcPath, "RedDrum.conf" ) 
-        rdr.staticConfigDataPath=os.path.join(rdSvcPath, "reddrum_simulator", "Data")
-        rdr.schemasPath = os.path.join(rdSvcPath, "schemas")
+
+        # get path to the simulator backend package
+        rdr.simulatorPkgPath=os.path.dirname( inspect.getfile(RdBackendRoot))  
+
+        # get the path to frontend data
+        #rdr.baseDataPath=os.path.join(rdSvcPath, "reddrum_frontend", "Data")
+        rdr.baseDataPath=os.path.join(rdr.frontEndPkgPath, "Data")
+        print("EEEEEEEE: baseDataPath: {}".format(rdr.baseDataPath))
+
+        rdr.varDataPath=os.path.join( "/var", "www", "rf"  )
+        print("EEEEEEEE: varDataPath: {}".format(rdr.varDataPath))
+
+        # if we have a RedDrum.conf file in /etc/ use it. otherwise use the default
+        #rdr.RedDrumConfPath=os.path.join(rdSvcPath, "RedDrum.conf" )
+        redDrumConfPathEtc=os.path.join("/etc",  "RedDrum.conf" )
+        redDrumConfPathFrontend=os.path.join(rdr.frontEndPkgPath, "RedDrum.conf")
+        redDrumConfPathSimulator=os.path.join(rdr.simulatorPkgPath,"RedDrum.conf")
+        if os.path.isfile(redDrumConfPathEtc):
+            rdr.RedDrumConfPath=redDrumConfPathEtc
+        else:
+            rdr.RedDrumConfPath=redDrumConfPathSimulator
+        print("EEEEEEEE: RedDrumConfPath: {}".format(rdr.RedDrumConfPath))
+
+        # get path to Simulator Static config files
+        rdr.staticConfigDataPath=os.path.join(rdr.simulatorPkgPath, "Data")
+        print("EEEEEEEE: StaticConfigDataPaths: {}".format(rdr.staticConfigDataPath))
+
+        rdr.schemasPath = os.path.join(rdSvcPath, "schemas") # not used now
 
         # note that syslog logging is enabled on Simulator by default unless -L (isLocal) option was specified
         # turn-on console messages also however
