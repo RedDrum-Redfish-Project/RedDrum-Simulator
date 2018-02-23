@@ -71,57 +71,119 @@ Re-running of SPMF conformance tests is currently in progress.
   * RedDrum-Stress-Tester -- runs 1000s of simultaneous requests in parallel
 
 ---
-## How to Install the RedDrum-Simulator 
+## How to Install and run the RedDrum-Simulator 
 
-#### Manual Install from git clone with edit-able code
-* Install on Centos7.1 or later Linux system
-* Install and configure the Apache httpd 
+
+#### Install Centos and httpd (for https reverse proxy)
 
 ```
+ 1. Install Centos 7.1 or later linux OS
+      -- a minimum install works, but you probably want the knome desktop
+      -- then yum install python3.4 or python3.5
+
+ 2. Install httpd, generate ssl cert, and configure to create a reverse proxy
      yum install httpd
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
-     mkdir RedDrumSim
-     git clone https://github.com RedDrum-Redfish-Project/RedDrum-Httpd-Configs RedDrum-Httpd-Configs
+     git clone https://github.com RedDrum-Redfish-Project/RedDrum-Httpd-Configs    # creates ./RedDrum-Httpd-Configs
      cd RedDrum-Httpd-Configs/Apache-ReverseProxy
      ./subSystem_config.sh # creates a httpd.conf file in etc/httpd and creates self-signed ssl certificates
+
+ 3. Start httpd:
+     systemctl enable httpd   # httpd will auto-start now any time the server reboots
+     systemctl restart httpd  # start it up now
+
 ```
 
-* Install the RedDrum-Frontend code (with editable code)
+#### Manual Install of RedDrum-Frontend and RedDrum-Simulator using git clone 
 
 ```
+     # create a directory to install editable RedDRum repos
+     mkdir  <your_path_to_Directory_Holding_RedDrumSimulator_code>
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
-     git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Frontend  
+
+     # git clone the RedDrum-Frontend code and install
+     git clone https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend  #creates ./RedDrum-Frontend
+     # install to site-packages as editable package
      pip install -e ./RedDrum-Frontend
+
+     # git clone the RedDrum-Simulator code and install
+     git clone https://github.com/RedDrum-Redfish-Project/RedDrum-Simulator  #creates ./RedDrum-Simulator
+     pip install -e ./RedDrum-Simulator
+
 ```
 
-* Install the RedDrum-Simulator code
+#### Normal install `pip install` from github 
 
 ```
+     # create a directory to install editable RedDRum repos
+     mkdir  <your_path_to_Directory_Holding_RedDrumSimulator_code>
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
-     git clone http://github.com/RedDrum-Redfish-Project/RedDrum-Simulator  
-```
 
-#### Install using `pip install` from github (currently testing)
-* ***currently working on this***
+     # pip install Frontend into site-packages
+     pip install git+https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend.git   # gets latest code in master
+
+     # pip install RedDrum-Simulator into site-packages
+     pip install git+https://github.com/RedDrum-Redfish-Project/RedDrum-Simulator.git  # gets latest code in master
+
+```
 
 #### Install using `pip install` from pypi (not working yet)
-* ***currently working on this***
+* RedDrum-Frontend and RedDrum-Simulator are not in pypi system yet
 
 
-### How to Start  the RedDrum-Simulator
+## STARTING  the RedDrum-Simulator
+#### Starting RedDrum-Simulator --if you cloned editable RedDrum repos
 
 ```
-     cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>/RedDrum-Simulator/scripts
+     cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
+     cd RedDrum-Simulator/scripts
+     su root     # the simulator will try to store files in /var/www/... so it needs to run as root
+     <enter password>
+
+     # start the simulator using runSimulator script
+     # ./runSimulator <profile>  where <profile>= oneOf: BaseServer1, Dss9000-4nodes
      ./runSimulator BaseServer1  # to run the Ocp Base Server Profile for a simple monalythic server
-     ./runSimulator Dss8000-4nodes  # to run the simulation of  a Dell ESS9000 rack-level redfish service w/ 4 nodes present
+       --or--
+     ./runSimulator Dss9000-4nodes  # to run the simulation of  a Dell ESS9000 rack-level redfish service w/ 4 nodes present
+
+     # to stop the simulator, hit control-C
+
+     # to clear data caches so that any changes you made to the resources (like users) is deleted:
+     ./clearCaches
+```
+#### 
+#### Starting RedDrum-Simulator --if you installed with pip install from github or pypi
+
+```
+     su root     # the simulator will try to store files in /var/www/... so it needs to run as root
+     <enter password>
+
+     # from any directory
+     #redDrumSimulatorMain [--Target=<target>]  $ where <target> = oneof: BaseServer1(default) or Dss9000-4nodes
+     redDrumSimulatorMain  # default is BaseServer1
+
+     # to stop the simulator, hit control-C
+
+     # to clear data caches so that any changes you made to the resources (like users) is deleted:
+     cd /var/www
+     rm -R -f rf
 ```
 
 ### How to Clear Data Caches
 The Simulator Frontend keeps resource data for non-volatile resource models cached in files, so if you add/delete users, change passwords, set AssetTags, etc, the changes will persist stopping and re-starting the simulator
 * To clear all data caches to defaults and also clear python caches, run:
-  * NOTE that IF YOU CHANGE Simulation Data, you must clear the caches for the changes to appear.
 
+```
+     su root     # the simulator will try to store files in /var/www/... so it needs to run as root
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>/RedDrum-Simulator/scripts
      ./clearCaches
+```
+
+* To clear data caches to defaults if you installed the packages directly to sitepackages
+
+```
+     su root     
+     cd /var/www
+```
 
 ---
