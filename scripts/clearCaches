@@ -9,4 +9,5 @@ rm -r -f $ECWD/../RedDrum-Frontend/reddrum_frontend/__pycache__
 # remove Local RedfishService Database caches under RedfishService: FlaskApp
 DBDIR="$ECWD/isLocalData"
 rm -R -f ${DBDIR}
+rm -R -f /var/www/rf
 
