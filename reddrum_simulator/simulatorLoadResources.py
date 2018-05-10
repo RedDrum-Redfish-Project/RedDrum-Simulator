@@ -24,6 +24,19 @@ class RdLoadSimulatorStaticResources():
             self.rdr.logMsg("CRITICAL",errMsg.format(self.rdr.rdProfile, profileDirPath ))
             sys.exit(10)
 
+        # load backend info file
+        backendInfoFilePath=os.path.join(profileDirPath, "backendInfo.json")
+        if os.path.isfile(backendInfoFilePath):
+            #   load the info file and save property IdConstructionRule
+            #   valid values are:  "Monolythic", "Dss9000", "Aggregator"
+            backendInfoDict = json.loads( open(backendInfoFilePath,"r").read() )
+            if "IdConstructionRule" in backendInfoDict:
+                self.rdr.backend.rdBeIdConstructionRule = backendInfoDict["IdConstructionRule"]
+        else:
+            errMsg="*****ERROR: backendInfo.json file {} file does not exist. Exiting."
+            self.rdr.logMsg("CRITICAL",errMsg.format(backendInfoFilePath ))
+            sys.exit(11)
+
         # managers
         #   if managersDb is not already loaded from cache, get it from static files, and update the cache
         if self.rdr.root.managers.managersDbDiscovered is False:

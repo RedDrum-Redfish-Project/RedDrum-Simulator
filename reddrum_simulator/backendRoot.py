@@ -14,6 +14,7 @@ from .managersBackend  import RdManagersBackend
 from .systemsBackend   import RdSystemsBackend
 
 from .simulatorLoadResources  import RdLoadSimulatorStaticResources
+from .oemFrontendUtils  import DellESI_FrontendOemUtils
 
 class RdBackendRoot():
     def __init__(self, rdr):
@@ -21,6 +22,8 @@ class RdBackendRoot():
         self.version = "0.9"
         self.backendStatus=0
         self.discoveryState=0
+        self.oemUtils=DellESI_FrontendOemUtils(rdr)
+        self.rdBeIdConstructionRule=None
 
         # include properties used by some OEM simulations eg rackNum for DSS9000
         self.rackNum="1"             # the rack number used to calculate IDs eg Rack1-Block1-Sled1  # getSystemsHostList
