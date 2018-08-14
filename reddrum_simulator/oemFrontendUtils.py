@@ -11,70 +11,67 @@
 
 import re
 
-class DellESI_FrontendOemUtils():
+class FrontendOemUtils():
     def __init__(self,rdr):
         self.rdr=rdr
-        self.isBlockRe=re.compile("^Rack[1-9][0-9]{0,3}-Block([1-9]|10)$")
-        self.isPowerBayRe=re.compile("^Rack[1-9][0-9]{0,3}-PowerBay[1-4]$")
-        self.subId=re.compile("^(Rack[0-9]{0,4})-*([^-]*)-?(.*)$")
+        self.dellEsiUtils=self.DellESI_FrontendOemUtils(rdr)
+        # enter other company/group oem utilities here
 
-    def getDss9000ChassisSubIds(self, chassid):
-        subIds=re.search(self.subId, chassid)
-        rack=subIds.group(1)
-        chas=subIds.group(2)
-        sled=subIds.group(3)
-        if chas == "":
-            chas = None
-        if sled == "":
-            sled = None
-        return(rack,chas,sled)
+    class DellESI_FrontendOemUtils():
+        def __init__(self,rdr):
+            self.rdr=rdr
+            self.isBlockRe=re.compile("^Rack[1-9][0-9]{0,3}-Block([1-9]|10)$")
+            self.isPowerBayRe=re.compile("^Rack[1-9][0-9]{0,3}-PowerBay[1-4]$")
+            self.subId=re.compile("^(Rack[0-9]{0,4})-*([^-]*)-?(.*)$")
 
-    def getAggregator(self, chassid):
-        subIds=re.search(self.subId, chassid)
-        rack=subIds.group(1)
-        chas=subIds.group(2)
-        sled=subIds.group(3)
-        if chas == "":
-            chas = None
-        if sled == "":
-            sled = None
-        return(rack,chas,sled)
+        def getDss9000ChassisSubIds(self, chassid):
+            subIds=re.search(self.subId, chassid)
+            rack=subIds.group(1)
+            chas=subIds.group(2)
+            sled=subIds.group(3)
+            if chas == "":
+                chas = None
+            if sled == "":
+                sled = None
+            return(rack,chas,sled)
 
 
-    def rsdLocation(self, chassid):
-        idRule = self.rdr.backend.rdBeIdConstructionRule
-        #   valid rdBeIdConstructionRule values are:  "Monolythic", "Dss9000", "Aggregator"
-        if(idRule=="Dss9000"):
-            rack,chas,sled=self.getDss9000ChassisSubIds(chassid)
-            if chas is None:
-                rid=rack
+        def rsdLocation(self, chassid):
+            idRule = self.rdr.backend.rdBeIdConstructionRule
+            #   valid rdBeIdConstructionRule values are:  "Monolythic", "Dss9000", "Aggregator"
+            if(idRule=="Dss9000"):
+                rack,chas,sled=self.getDss9000ChassisSubIds(chassid)
+                if chas is None:
+                    rid=rack
+                    parent=None
+                elif sled is None:
+                    rid=chas
+                    parent=rack
+                else:
+                    rid=sled
+                    parent=chas
+                #print("rack: {}, chas: {}, sled: {}".format(rack,chas,sled))
+            elif (idRule=="Monolythic"):
+                rid=chassid
                 parent=None
-            elif sled is None:
-                rid=chas
-                parent=rack
+            elif (idRule=="Aggregator"):
+                rid=chassid
+                parent=None
+                if chassid in self.rdr.root.chassis.chassisDb:
+                    if "ContainedBy" in self.rdr.root.chassis.chassisDb[chassid]:
+                        parent = self.rdr.root.chassis.chassisDb[chassid]["ContainedBy"]
+            return( rid, parent)
+    
+        def isBlock(self,chassid):
+            if re.search(self.isBlockRe, chassid) is not None:
+                return True
             else:
-                rid=sled
-                parent=chas
-            #print("rack: {}, chas: {}, sled: {}".format(rack,chas,sled))
-        elif (idRule=="Monolythic"):
-            rid=chassid
-            parent=None
-        elif (idRule=="Aggregator"):
-            rid=chassid
-            parent=None
-            if chassid in self.rdr.root.chassis.chassisDb:
-                if "ContainedBy" in self.rdr.root.chassis.chassisDb[chassid]:
-                    parent = self.rdr.root.chassis.chassisDb[chassid]["ContainedBy"]
-        return( rid, parent)
+                return False
+    
+        def isPowerBay(self,chassid):
+            if ( re.search(self.isPowerBayRe, chassid)) is not None:
+                return True
+            else:
+                return False
 
-    def isBlock(self,chassid):
-        if re.search(self.isBlockRe, chassid) is not None:
-            return True
-        else:
-            return False
-
-    def isPowerBay(self,chassid):
-        if ( re.search(self.isPowerBayRe, chassid)) is not None:
-            return True
-        else:
-            return False
+    # create class for other oem utils here
