@@ -102,7 +102,7 @@ Re-running of SPMF conformance tests is currently in progress.
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
 
      # git clone the RedDrum-Frontend code and install
-     git clone https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend  #creates ./RedDrum-Frontend
+     git clone -b v1.0.0 --single-branch  https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend  RedDrum-Frontend #creates ./RedDrum-Frontend
      # install to site-packages as editable package
      pip install -e ./RedDrum-Frontend
 
@@ -120,7 +120,7 @@ Re-running of SPMF conformance tests is currently in progress.
      cd  <your_path_to_Directory_Holding_RedDrumSimulator_code>
 
      # pip install Frontend into site-packages
-     pip install git+https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend.git   # gets latest code in master
+     pip install git+https://github.com/RedDrum-Redfish-Project/RedDrum-Frontend.git@v1.0.0   # get release code 
 
      # pip install RedDrum-Simulator into site-packages
      pip install git+https://github.com/RedDrum-Redfish-Project/RedDrum-Simulator.git  # gets latest code in master
